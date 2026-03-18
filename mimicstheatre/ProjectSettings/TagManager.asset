@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - LightControls
+  - CinemachineTarget
+  - LeftLight
+  - RightLight
   layers:
   - Default
   - TransparentFX
