@@ -9,6 +9,7 @@ public class LightControlPanel : MonoBehaviour
     public GameObject player;
     public bool camSwap = false;
     public bool canUseCamera = false;
+    public bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +23,14 @@ public class LightControlPanel : MonoBehaviour
         {
             CamSwap();
             camSwap = false;
+            canMove = false;
+
         }
         else if (canUseCamera && !camSwap && Input.GetKeyDown(KeyCode.R))
         {
             CamSwap();
             camSwap = true;
+            canMove = true;
         }
     }
 

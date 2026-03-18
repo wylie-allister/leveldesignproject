@@ -21,6 +21,7 @@ public class FirstPersonController : MonoBehaviour
     #region Camera Movement Variables
 
     public Camera playerCamera;
+    public LightControlPanel lcp;
 
     public float fov = 60f;
     public bool invertCamera = false;
@@ -131,9 +132,13 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+    //public LightControlPanel lcp;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+       // lcp = GetComponent<LightControlPanel>();
 
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -368,7 +373,7 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Movement
 
-        if (playerCanMove)
+        if (playerCanMove && lcp.canMove == true)
         {
             // Calculate how fast we should be moving
             Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -560,6 +565,7 @@ public class FirstPersonController : MonoBehaviour
         GUILayout.Label("Camera Setup", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 13 }, GUILayout.ExpandWidth(true));
         EditorGUILayout.Space();
 
+        fpc.lcp = (LightControlPanel)EditorGUILayout.ObjectField(new GUIContent("Light Control Panel"), fpc.lcp, typeof(LightControlPanel), true);
         fpc.playerCamera = (Camera)EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."), fpc.playerCamera, typeof(Camera), true);
         fpc.fov = EditorGUILayout.Slider(new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV, 179f);
         fpc.cameraCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Enable Camera Rotation", "Determines if the camera is allowed to move."), fpc.cameraCanMove);
