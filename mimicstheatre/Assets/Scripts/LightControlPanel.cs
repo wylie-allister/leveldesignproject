@@ -10,6 +10,7 @@ public class LightControlPanel : MonoBehaviour
     public bool camSwap = false;
     public bool canUseCamera = false;
     public bool canMove = true;
+    public bool moveLight = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +44,14 @@ public class LightControlPanel : MonoBehaviour
             mainCam.SetActive(false);
             //player.SetActive(false);
             stageCam.SetActive(true);
+            moveLight = true;
         }
         else if (!camSwap)
         {
             mainCam.SetActive(true);
             //player.SetActive(true);
             stageCam.SetActive(false);
+            moveLight = false;
         }
     }
 

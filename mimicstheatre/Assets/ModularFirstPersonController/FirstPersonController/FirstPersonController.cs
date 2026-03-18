@@ -534,7 +534,6 @@ public class FirstPersonController : MonoBehaviour
 }
 
 
-
 // Custom Editor
 #if UNITY_EDITOR
     [CustomEditor(typeof(FirstPersonController)), InitializeOnLoadAttribute]

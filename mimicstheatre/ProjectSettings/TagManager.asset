@@ -9,6 +9,7 @@ TagManager:
   - LeftLight
   - RightLight
   - Goal
+  - Bucket
   layers:
   - Default
   - TransparentFX

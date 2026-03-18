@@ -9,6 +9,7 @@ public class SpotLight : MonoBehaviour
     public float moveSpeed = 1.2f;
 
     public bool isLeftActive = true;
+    public LightControlPanel lcp;
 
     [SerializeField]
     private LightSide _lightSide;
@@ -21,18 +22,22 @@ public class SpotLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (lcp.moveLight)
         {
-            isLeftActive = !isLeftActive;
-        }
 
-        if (this.tag == "LeftLight" && isLeftActive)
-        {
-            this.Movement();
-        }
-        else if (this.tag == "RightLight" && !isLeftActive)
-        {
-            this.Movement();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                isLeftActive = !isLeftActive;
+            }
+
+            if (this.tag == "LeftLight" && isLeftActive)
+            {
+                this.Movement();
+            }
+            else if (this.tag == "RightLight" && !isLeftActive)
+            {
+                this.Movement();
+            }
         }
 
 
