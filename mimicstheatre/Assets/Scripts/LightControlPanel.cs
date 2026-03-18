@@ -63,4 +63,12 @@ public class LightControlPanel : MonoBehaviour
             canUseCamera = true;
         }
     }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            canUseCamera = false;
+        }
+    }
 }

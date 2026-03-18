@@ -10,6 +10,9 @@ TagManager:
   - RightLight
   - Goal
   - Bucket
+  - Changing
+  - Rafter
+  - Disguise
   layers:
   - Default
   - TransparentFX
