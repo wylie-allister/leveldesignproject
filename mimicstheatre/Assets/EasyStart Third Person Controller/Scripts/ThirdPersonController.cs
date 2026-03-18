@@ -45,6 +45,8 @@ public class ThirdPersonController : MonoBehaviour
     Animator animator;
     CharacterController cc;
 
+    public LightControlPanel lcp;
+
 
     void Start()
     {
@@ -145,37 +147,39 @@ public class ThirdPersonController : MonoBehaviour
         // Add gravity to Y axis
         directionY = directionY - gravity * Time.deltaTime;
 
-        
+
         // --- Character rotation --- 
+            Vector3 forward = Camera.main.transform.forward;
+            Vector3 right = Camera.main.transform.right;
 
-        Vector3 forward = Camera.main.transform.forward;
-        Vector3 right = Camera.main.transform.right;
 
-        forward.y = 0;
-        right.y = 0;
+            forward.y = 0;
+            right.y = 0;
 
-        forward.Normalize();
-        right.Normalize();
+            forward.Normalize();
+            right.Normalize();
 
-        // Relate the front with the Z direction (depth) and right with X (lateral movement)
-        forward = forward * directionZ;
-        right = right * directionX;
+            // Relate the front with the Z direction (depth) and right with X (lateral movement)
+            forward = forward * directionZ;
+            right = right * directionX;
 
-        if (directionX != 0 || directionZ != 0)
-        {
-            float angle = Mathf.Atan2(forward.x + right.x, forward.z + right.z) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.Euler(0, angle, 0);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
-        }
 
-        // --- End rotation ---
+            if (directionX != 0 || directionZ != 0)
+            {
+                float angle = Mathf.Atan2(forward.x + right.x, forward.z + right.z) * Mathf.Rad2Deg;
+                Quaternion rotation = Quaternion.Euler(0, angle, 0);
+                transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.15f);
+            }
 
+            // --- End rotation ---
+
+
+            Vector3 verticalDirection = Vector3.up * directionY;
+            Vector3 horizontalDirection = forward + right;
+
+            Vector3 moviment = verticalDirection + horizontalDirection;
+            cc.Move(moviment);
         
-        Vector3 verticalDirection = Vector3.up * directionY;
-        Vector3 horizontalDirection = forward + right;
-
-        Vector3 moviment = verticalDirection + horizontalDirection;
-        cc.Move( moviment );
 
     }
 

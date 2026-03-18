@@ -7,7 +7,8 @@ public class LightControlPanel : MonoBehaviour
     public GameObject mainCam;
     public GameObject stageCam;
     public GameObject player;
-    bool camSwap = false;
+    public bool camSwap = false;
+    public bool canUseCamera = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,16 @@ public class LightControlPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (canUseCamera && camSwap && Input.GetKeyDown(KeyCode.R))
+        {
+            CamSwap();
+            camSwap = false;
+        }
+        else if (canUseCamera && !camSwap && Input.GetKeyDown(KeyCode.R))
+        {
+            CamSwap();
+            camSwap = true;
+        }
     }
 
     public void CamSwap()
@@ -25,28 +35,25 @@ public class LightControlPanel : MonoBehaviour
 
         if (camSwap)
         {
+            
             mainCam.SetActive(false);
-            player.SetActive(false);
+            //player.SetActive(false);
             stageCam.SetActive(true);
         }
         else if (!camSwap)
         {
             mainCam.SetActive(true);
-            player.SetActive(true);
+            //player.SetActive(true);
             stageCam.SetActive(false);
         }
     }
+
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("ping");
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                camSwap = !camSwap;
-                CamSwap();
-            }
+            canUseCamera = true;
         }
     }
 }
