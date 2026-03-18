@@ -15,7 +15,7 @@ public class Follower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 lpTrack = new Vector3(lightPoint.transform.position.x, 0, lightPoint.transform.position.z);
+        Vector3 lpTrack = new Vector3(lightPoint.transform.position.x, 0.5f, lightPoint.transform.position.z);
         transform.position = Vector3.MoveTowards(transform.position, lpTrack, speed * Time.deltaTime);
     }
 }
