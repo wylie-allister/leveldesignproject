@@ -16,7 +16,12 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Rotation();
+    }
+
+    public void Rotation()
+    {
         float rotation = 20 * Time.deltaTime;
-        transform.Rotate(0, rotation, 0);
+         transform.Rotate(0, rotation, 0); 
     }
 }
