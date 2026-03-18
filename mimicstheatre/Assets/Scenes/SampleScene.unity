@@ -617,9 +617,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 261612438}
+  - component: {fileID: 261612439}
   m_Layer: 0
   m_Name: Follow Spot
-  m_TagString: Untagged
+  m_TagString: LeftLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,6 +640,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 712677634}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &261612439
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 261612437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.298521
+  m_Center: {x: 0, y: -0.20147905, z: 6.8952336e-16}
 --- !u!1 &262148223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4444558461230370346, guid: f6a1d0950a4281140857674c820f7d85, type: 3}
@@ -2964,6 +2986,8 @@ GameObject:
   - component: {fileID: 1189235786}
   - component: {fileID: 1189235785}
   - component: {fileID: 1189235784}
+  - component: {fileID: 1189235788}
+  - component: {fileID: 1189235789}
   m_Layer: 0
   m_Name: LightGoal
   m_TagString: Goal
@@ -3059,6 +3083,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1189235788
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189235783}
+  serializedVersion: 4
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1189235789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189235783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8a2697440318841930301bff655467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightTracker: 0
 --- !u!1001 &1194151018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3986,9 +4050,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1715054254}
+  - component: {fileID: 1715054255}
   m_Layer: 0
   m_Name: Follow Spot
-  m_TagString: Untagged
+  m_TagString: RightLight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4008,6 +4073,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 297614828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1715054255
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715054253}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.31919187
+  m_Center: {x: 0, y: -0.18080816, z: -7.9308203e-16}
 --- !u!1 &1762424361 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4255186633505938192, guid: f6a1d0950a4281140857674c820f7d85, type: 3}
