@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DisguiseKit : MonoBehaviour
@@ -11,6 +12,9 @@ public class DisguiseKit : MonoBehaviour
 
     public bool isElectric = false;
     public bool isActor = false;
+
+    public TextMeshProUGUI inventoryText;
+    public TextMeshProUGUI disguiseText;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,7 @@ public class DisguiseKit : MonoBehaviour
         {
             disguise.SetActive(false);
             hasKit = true;
+            inventoryText.text = "Inventory: Bucket Disguise Kit";
         }
     }
 
@@ -39,11 +44,13 @@ public class DisguiseKit : MonoBehaviour
         {
             isElectric = true;
             isActor = false;
+            disguiseText.text = "Current Disguise: Electrician"; 
         }
         if (hasKit && Input.GetKeyDown(KeyCode.Alpha2))
         {
             isElectric = false;
             isActor = true;
+            disguiseText.text = "Current Disguise: Actor";
         }
 
         //reduce range for vision if either are picked

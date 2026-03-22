@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Bucket : MonoBehaviour
@@ -15,6 +16,9 @@ public class Bucket : MonoBehaviour
     bool canRafters = false;
 
     public Goal goal;
+
+    public TextMeshProUGUI currentDisguise;
+    public TextMeshProUGUI inventoryUpdate;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,12 +37,14 @@ public class Bucket : MonoBehaviour
         {
             bucket.SetActive(false);
             hasBucket = true;
+            inventoryUpdate.text = "Inventory: Bucket";
         }
 
         if (canMonster && Input.GetKeyDown(KeyCode.R))
         {
             guy.SetActive(false);
             monster.SetActive(true);
+            
         }
 
         if (canRafters && Input.GetKeyDown(KeyCode.R) && goal.lightTracker >= 2)

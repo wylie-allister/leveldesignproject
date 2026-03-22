@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class LightControlPanel : MonoBehaviour
@@ -11,6 +12,10 @@ public class LightControlPanel : MonoBehaviour
     public bool canUseCamera = false;
     public bool canMove = true;
     public bool moveLight = false;
+
+    public GameObject lightGuide;
+    public GameObject controlGuide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +50,8 @@ public class LightControlPanel : MonoBehaviour
             //player.SetActive(false);
             stageCam.SetActive(true);
             moveLight = true;
+            lightGuide.SetActive(true);
+            controlGuide.SetActive(false);
         }
         else if (!camSwap)
         {
@@ -52,6 +59,8 @@ public class LightControlPanel : MonoBehaviour
             //player.SetActive(true);
             stageCam.SetActive(false);
             moveLight = false;
+            lightGuide.SetActive(false);
+            controlGuide.SetActive(true);
         }
     }
 
