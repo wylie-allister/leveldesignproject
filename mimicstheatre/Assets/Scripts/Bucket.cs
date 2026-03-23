@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bucket : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class Bucket : MonoBehaviour
         if (canRafters && Input.GetKeyDown(KeyCode.R) && goal.lightTracker >= 2)
         {
             Debug.Log("You did it! Good Jorb!");
+            SceneManager.LoadScene("EndScreen");
             //cutscene
         }
     }
