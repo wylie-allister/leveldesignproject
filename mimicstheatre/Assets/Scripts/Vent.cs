@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Vent : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class Vent : MonoBehaviour
 
         if (timerLength <= 0)
         {
+            
             vent.SetActive(false);
+            timerStart = false;
         }
 
     }
@@ -41,6 +44,14 @@ public class Vent : MonoBehaviour
         if (collision.gameObject.tag == "Vent")
         {
             canOpen = true;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Spotted" && timerStart)
+        {
+            SceneManager.LoadScene("Theatre");
         }
     }
 }

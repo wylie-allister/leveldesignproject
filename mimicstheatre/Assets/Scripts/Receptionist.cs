@@ -8,6 +8,8 @@ public class Receptionist : MonoBehaviour
 
     public bool rotLeft = true;
     public bool rotRight = false;
+
+    
     
     // Start is called before the first frame update
     void Start()
@@ -52,4 +54,6 @@ public class Receptionist : MonoBehaviour
         float rrotation = -10 * Time.deltaTime;
         transform.Rotate(0, rrotation, 0);
     }
+
+    
 }

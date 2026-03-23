@@ -14,6 +14,7 @@ TagManager:
   - Rafter
   - Disguise
   - Vent
+  - Spotted
   layers:
   - Default
   - TransparentFX
