@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         Rotation();
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        if (!Physics.Raycast(transform.position, fwd, 2, ob))
+        if (!Physics.Raycast(transform.position, fwd, 5, ob))
             {
             if (Physics.Raycast(transform.position, fwd, 5, player))
             {
