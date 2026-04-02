@@ -20,8 +20,12 @@ public class Bucket : MonoBehaviour
 
     public TextMeshProUGUI currentDisguise;
     public TextMeshProUGUI inventoryUpdate;
+    public GameObject electricAnnounc;
 
     public int respawnArea = 0;
+    public bool timerStart;
+    public float timerLength = 10;
+    public bool timerPrereq;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +52,10 @@ public class Bucket : MonoBehaviour
         {
             guy.SetActive(false);
             monster.SetActive(true);
+            electricAnnounc.SetActive(true);
+            timerStart = true;
             respawnArea = 2;
+           
         }
 
         if (canRafters && Input.GetKeyDown(KeyCode.R) && goal.lightTracker >= 2)
@@ -56,6 +63,35 @@ public class Bucket : MonoBehaviour
             Debug.Log("You did it! Good Jorb!");
             SceneManager.LoadScene("EndScreen");
             //cutscene
+        }
+
+        if (timerStart)
+        {
+            timerLength -= Time.deltaTime;
+        }
+
+        if (timerLength <= 0)
+        {
+
+            electricAnnounc.SetActive(false);
+            timerStart = false;
+        }
+    }
+
+    public void TextTimer()
+    {
+            timerStart = true;
+
+        if (timerStart)
+        {
+            timerLength -= Time.deltaTime;
+        }
+
+        if (timerLength <= 0)
+        {
+
+            electricAnnounc.SetActive(false);
+            timerStart = false;
         }
     }
 
