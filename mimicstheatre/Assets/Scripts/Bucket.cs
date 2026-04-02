@@ -21,6 +21,8 @@ public class Bucket : MonoBehaviour
     public TextMeshProUGUI currentDisguise;
     public TextMeshProUGUI inventoryUpdate;
 
+    public int respawnArea = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,13 +41,14 @@ public class Bucket : MonoBehaviour
             bucket.SetActive(false);
             hasBucket = true;
             inventoryUpdate.text = "Inventory: Bucket";
+            respawnArea = 1;
         }
 
         if (canMonster && Input.GetKeyDown(KeyCode.R))
         {
             guy.SetActive(false);
             monster.SetActive(true);
-            
+            respawnArea = 2;
         }
 
         if (canRafters && Input.GetKeyDown(KeyCode.R) && goal.lightTracker >= 2)

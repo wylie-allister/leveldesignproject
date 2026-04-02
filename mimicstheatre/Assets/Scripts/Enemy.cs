@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     public LayerMask player;
     public LayerMask ob;
 
+    public GameObject pl;
+    public Respawn rs;
+    public Bucket bk;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +28,18 @@ public class Enemy : MonoBehaviour
             {
             if (Physics.Raycast(transform.position, fwd, 5, player))
             {
-                Debug.Log("AAAAAAAAAA");
+                //Debug.Log("AAAAAAAAAA");
                 UhOh();
             }
         }
+        
     }
 
     public void UhOh()
     {
-        //replace with waypoints oh my god do not leave this code like this
-        SceneManager.LoadScene("Theatre");
+            Debug.Log("AAAAAAAAAA");
+            pl.transform.position = rs.respawnPoints[bk.respawnArea].transform.position;
+        
     }
 
     public void Rotation()

@@ -39,7 +39,7 @@ public class Vent : MonoBehaviour
 
     }
 
-    public void OnCollisionStay(Collision collision)
+    public void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Vent")
         {
