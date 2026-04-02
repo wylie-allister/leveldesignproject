@@ -15,6 +15,7 @@ TagManager:
   - Disguise
   - Vent
   - Spotted
+  - Glow
   layers:
   - Default
   - TransparentFX
